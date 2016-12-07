@@ -1,7 +1,4 @@
-emb_path = "/data/che313/reDec2016data/embedding/SKIP_GRAM_average_v5_200.th"
+import util_StanfordData as utilSIE
 
-emb = torch.load(emb_path)
-emb_vecs = emb.M
-emb_vocab = emb.w2vvocab
+utilSIE.read_whole_stanfordIE_data()
 
-print "ok"
