@@ -15,11 +15,29 @@ def read_whole_stanfordIE_data(base_dir, emb_vocab,bottom_line,line_num,window_s
 def read_labels(path,bottom_line,line_num):
 	labels = {}
 	file = open(path)
-	count = 1
+	count = 0
 	
-	try:
-		while count < bottom_line + line_num:
-			line = file.readlines()
-			if line != null:
-				if count >= bottom_line:
-					labels 
+	while count < bottom_line + line_num:
+		line = file.readlines()
+		if line != null:
+			if count >= bottom_line:
+				labels[len(labels) + 1] = (int)line
+			count++
+		else break
+	file.close()
+	return labels
+		
+def read_features(path,bottom_line,line_num):
+	features = {}
+	file = openpath()
+	count = 1
+
+	whule count < botton_line + line_num do
+		line = file.readlines()
+		if line != null:
+			tokens = line.split()
+			tokens_len = len(tokens)
+			feature_matrix = numpy.zeros((tokens_len, 2))
+		
+			for i in range(0,tokens_len):
+				
