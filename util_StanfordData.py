@@ -108,7 +108,7 @@ def read_seq_ids(seq_path, bottom_line, line_num):
             # --------
             ids = []
             for i in range(0, tokens_len):
-                ids[i] = int(tokens[i]) + 1
+                ids.append( int(tokens[i]) + 1 )
 
             seq_ids.append(ids)
         # end if
