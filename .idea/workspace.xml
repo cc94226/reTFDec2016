@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e1145d8-75ed-45ad-9c19-5323dfb3bcb3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/che313.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/reTFDec2016.iml" afterPath="$PROJECT_DIR$/.idea/reTFDec2016.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loaddata.py" afterPath="$PROJECT_DIR$/loaddata.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util_StanfordData.py" afterPath="$PROJECT_DIR$/util_StanfordData.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,17 +21,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="loaddata.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="loaddata.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/loaddata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="54">
+              <caret line="3" column="15" lean-forward="true" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="treelstm_util.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="treelstm_util.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/treelstm_util.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
@@ -46,8 +44,8 @@
       <file leaf-file-name="util_StanfordData.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/util_StanfordData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="890">
-              <caret line="196" column="15" lean-forward="false" selection-start-line="196" selection-start-column="15" selection-end-line="196" selection-end-column="15" />
+            <state relative-caret-position="72">
+              <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -71,6 +69,7 @@
     <findStrings>
       <find>treelstm</find>
       <find>NullNone</find>
+      <find>emb_vocab</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -82,6 +81,7 @@
         <option value="$PROJECT_DIR$/Tree.py" />
         <option value="$PROJECT_DIR$/treelstm_util.py" />
         <option value="$PROJECT_DIR$/util_StanfordData.py" />
+        <option value="$PROJECT_DIR$/loaddata.py" />
       </list>
     </option>
   </component>
@@ -498,14 +498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loaddata.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tree_Class.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="666">
@@ -516,8 +508,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/util_StanfordData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="890">
-          <caret line="196" column="15" lean-forward="false" selection-start-line="196" selection-start-column="15" selection-end-line="196" selection-end-column="15" />
+        <state relative-caret-position="72">
+          <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -528,6 +520,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loaddata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="15" lean-forward="true" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
           <folding />
         </state>
       </provider>
