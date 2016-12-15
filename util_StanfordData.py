@@ -34,7 +34,7 @@ def read_labels(path, bottom_line, line_num):
         line = file.readlines()
         if line:
             if count >= bottom_line:
-                labels[len(labels) + 1] = int(line)
+                labels.append( int(line) )
             count += 1
         else:
             break
@@ -45,7 +45,7 @@ def read_labels(path, bottom_line, line_num):
 def read_features(path, bottom_line, line_num):
     features = []
     file = open(path)
-    count = 1
+    count = 0
 
     while count < bottom_line + line_num:
         line = file.readline()
@@ -55,7 +55,7 @@ def read_features(path, bottom_line, line_num):
             feature_matrix = []
             for i in range(0, tokens_len):
                 feature_matrix.append([])
-                feature_matrix[i].append(int(tokens[i]) + 1)
+                feature_matrix[i].append(int(tokens[i]))
                 feature_matrix[i].append(1)
             # end for i
             features.append(feature_matrix)
@@ -69,7 +69,7 @@ def read_features(path, bottom_line, line_num):
 def read_sentences(sentence_path, emb_vocab, bottom_line, line_num):
     sentences = []
     file = open(sentence_path)
-    count = 1
+    count = 0
     while count < bottom_line + line_num:
         line = file.readline()
         if line and count >= bottom_line:
@@ -78,7 +78,7 @@ def read_sentences(sentence_path, emb_vocab, bottom_line, line_num):
             # ------------------
             sent = []
 
-            for i in range(1, tokens_len):
+            for i in range(0, tokens_len):
                 idx = emb_vocab[tokens[i]]
                 if idx:
                     sent[i] = idx
@@ -98,7 +98,7 @@ def read_sentences(sentence_path, emb_vocab, bottom_line, line_num):
 def read_seq_ids(seq_path, bottom_line, line_num):
     seq_ids = []
     file = open(seq_path)
-    count = 1
+    count = 0
 
     while count < bottom_line + line_num:
         line = file.readline()
@@ -107,7 +107,7 @@ def read_seq_ids(seq_path, bottom_line, line_num):
             tokens_len = len(tokens)
             # --------
             ids = []
-            for i in range(1, tokens_len):
+            for i in range(0, tokens_len):
                 ids[i] = int(tokens[i]) + 1
 
             seq_ids.append(ids)
@@ -122,11 +122,11 @@ def read_seq_ids(seq_path, bottom_line, line_num):
 def read_trees_from_seq_ids(seqs, window_size, sents, predict_root, filter_list, direction):
     trees = []
 
-    for i in range(1, len(seqs)):
+    for i in range(0, len(seqs)):
         temp_seq = seqs[i]
         temp_sent = sents[i]
         temp_parents = []
-        for j in range(1, len(temp_seq)):
+        for j in range(0, len(temp_seq)):
             temp_parents[j] = j + 1
 
         tree = read_tree(temp_parents, temp_seq, window_size, temp_sent, predict_root, filter_list, direction)
@@ -140,7 +140,7 @@ def read_tree(parents, seqs, window_size, sent, predict_root, filter_list, direc
     root = Tree_Class.Tree()
     root_count = 0
 
-    for i in range(1,size):
+    for i in range(0,size):
         if not trees[i]:
             idx = i
 
