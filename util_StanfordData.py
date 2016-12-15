@@ -137,6 +137,7 @@ def read_trees_from_seq_ids(seqs, window_size, sents, predict_root, filter_list,
 def read_tree(parents, seqs, window_size, sent, predict_root, filter_list, direction):
     size = len(parents)
     trees = []
+    root = Tree_Class.Tree()
     root_count = 0
 
     for i in range(1,size):
@@ -147,5 +148,51 @@ def read_tree(parents, seqs, window_size, sent, predict_root, filter_list, direc
                 temp_parent = parents[idx]
                 sent_idx = seqs[idx]
                 tree = Tree_Class.Tree()
+                #?????
+                tree.is_root = False
 
-                tree.is_root =
+                prev = None
+                if prev:
+                    tree.add_child(prev)
+
+                trees[idx] = tree
+                tree.sent_idx = sent_idx
+                tree.idx = idx
+
+                treelstm.set_spans(tree)
+
+                c = 0
+                for j in range(tree.lo - window_size, tree.hi + window_size):
+                    if j >= 1 and j <= len(sent) and (j > tree.hi or j < tree.lo):
+                        if not filter_list[sent[j][1]]:
+                            c += 1
+                            treelstm.addtoset(tree.context_word_id_set, sent[j][1])
+
+                        else:
+                            treelstm.addtoset(tree.context_word_id_set, sent[j][1])
+
+                if trees[temp_parent]:
+                    trees[temp_parent].add_child(tree)
+                elif temp_parent == size + 1:
+                    root = tree
+                    root_count = root_count + 1
+                    tree.is_root = True
+                else:
+                    prev = tree
+                    idx = parents
+
+    if predict_root == 2:
+        root.context_word_id_set = []
+        temp_lo = 0
+        temp_hi = 0
+        if direction == 'l':
+            temp_lo = root.lo +1
+            temp_hi = root.hi
+        elif direction == 'r':
+            temp_lo = root.lo
+            temp_hi = root.hi -1
+        for j in range(temp_lo, temp_hi):
+            treelstm.addtoset(root.context_word_id_set, sent[j][1])
+
+    return root
+
