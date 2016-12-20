@@ -24,7 +24,6 @@ def read_whole_stanfordIE_data(base_dir, emb_vocab, bottom_line, line_num, windo
     dataset['size'] = len(dataset)
     return dataset
 
-
 def read_labels(path, bottom_line, line_num):
     labels = []
     file = open(path)
@@ -196,3 +195,20 @@ def read_tree(parents, seqs, window_size, sent, predict_root, filter_list, direc
 
     return root
 
+#origin: torchIE -> IEUnsupervisieiedPretrain/FileFOrmatConvertFuncs.lua/read_si_map
+#!!!!!! no filter_realtion option
+def read_label_or_feature(path):
+    file = open(path)
+    map = {}
+    map.i2s, map.s2i = {}, {}
+    count = 0
+    while (True):
+        temp_line = file.readline()
+        if temp_line != 'no_relation':
+            count += 1
+            map.i2s[count] = temp_line
+            map.s2i[temp_line] = count
+
+    map.size = count
+    file.close()
+    return map
