@@ -2,7 +2,7 @@ import treelstm_util as treelstm
 import tree_Class as Tree_Class
 
 
-def read_whole_stanfordIE_data(base_dir, bottom_line, line_num, window_size):
+def read_whole_stanfordIE_data(base_dir, emb_vocab, bottom_line, line_num, window_size):
     label_file_path = base_dir + 'label'
     feature_file_path = base_dir + 'feature'
 
@@ -14,7 +14,7 @@ def read_whole_stanfordIE_data(base_dir, bottom_line, line_num, window_size):
 
     dataset['label'] = read_labels(label_file_path, bottom_line, line_num)
     dataset['sparse_feature'] = read_features(feature_file_path, bottom_line, line_num)
-    #dataset['sents'] = read_sentences(sentence_path, emb_vocab, bottom_line, line_num)
+    dataset['sents'] = read_sentences(sentence_path, emb_vocab, bottom_line, line_num)
     dataset['sentences_bipath_seq_lr'] = read_seq_ids(bipath_seq_lr_path, bottom_line, line_num)
     dataset['trees_bipath_seq_lr'] = read_trees_from_seq_ids(dataset['sentences_bipath_seq_lr'], window_size,
                                                              dataset.sents, 0, {}, 'l')
