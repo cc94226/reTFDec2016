@@ -1,6 +1,8 @@
 import util_StanfordData as utilSIE
 import util_loadEmbedding as utilEMB
 
+import math
+
 #=========================
 
 #data path for loacl test
@@ -10,6 +12,7 @@ import util_loadEmbedding as utilEMB
 #test_dir = '/home/che313/data/bipath_stanford/test/'
 #label_list_path = '/home/che313/data/bipath_stanford/LabelList'
 #feature_list_path = '/home/che313/data/bipath_stanford/FeaturesList'
+#
 
 #=========================
 
@@ -36,4 +39,30 @@ feature_size = len(feature_list)
 
 #load file including test data
 test_dataset = utilSIE.read_whole_stanfordIE_data(test_dir, emb_vocab, 1, max_line, 0)
+
+block_size = 1000
+
+#==========================
+
+#finish load data
+
+#==========================
+
+#wirte_relation_head(result_path,label_list)
+
+#!!!!!!!!!!!!!!!!
+#for i from 1 to training set?
+for i in range(0,0):
+    data_size = math.floor(3)
+
+def write_relation_head(data_path, label_list):
+    temp_map = label_list.i2s
+    result_file = open(data_path,'w')
+    head_line = ','
+    results.write(head_line)
+    for i in range(0, len(temp_map)):
+        result_file.write("%s,%s,%s",map[i],"_precision",map[i],"recall")
+    result_file.close()
+
+
 
