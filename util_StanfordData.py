@@ -1,3 +1,11 @@
+#==================
+
+#Functions in this file is usually for general use for bilstm treelstm and some of then also used for CNN
+
+#Cheng Chen 2016
+
+#==================
+
 import treelstm_util as treelstm
 import tree_Class as Tree_Class
 
@@ -200,7 +208,7 @@ def read_tree(parents, seqs, window_size, sent, predict_root, filter_list, direc
 def read_label_or_feature(path):
     file = open(path)
     map = {}
-    map.i2s, map.s2i = {}, {}
+    map['i2s'], map['s2i'] = {}, {}
     count = 0
     while (True):
         temp_line = file.readline()
