@@ -50,8 +50,6 @@ block_size = 1000
 
 #wirte_relation_head(result_path,label_list)
 
-#!!!!!!!!!!!!!!!!
-#for i from 1 to training set?
 for i in range(0,0):
     data_size = math.floor(3)
 
